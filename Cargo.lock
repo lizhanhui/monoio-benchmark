@@ -137,6 +137,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "core_affinity"
+version = "0.7.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "479fdfb5e75b80b678a34a8231b4415481b06b706e486bf5b3ba72378710caaf"
+dependencies = [
+ "libc",
+ "num_cpus",
+ "winapi 0.3.9",
+]
+
+[[package]]
 name = "crossbeam"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -392,9 +403,9 @@ dependencies = [
 
 [[package]]
 name = "io-uring"
-version = "0.5.2"
+version = "0.5.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d75829ed9377bab6c90039fe47b9d84caceb4b5063266142e21bcce6550cda8"
+checksum = "7ba34abb5175052fc1a2227a10d2275b7386c9990167de9786c0b88d8b062330"
 dependencies = [
  "bitflags",
  "libc",
@@ -554,7 +565,7 @@ dependencies = [
  "nix 0.25.1",
  "pin-project-lite",
  "scoped-tls",
- "socket2 0.4.2",
+ "socket2 0.4.7",
  "windows",
 ]
 
@@ -615,9 +626,9 @@ dependencies = [
 
 [[package]]
 name = "num_cpus"
-version = "1.13.0"
+version = "1.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "05499f3756671c15885fee9034446956fff3f243d6077b91e5767df161f766b3"
+checksum = "f6058e64324c71e02bc2b150e4f3bc8286db6c83092132ffa3f6b1eab0f9def5"
 dependencies = [
  "hermit-abi",
  "libc",
@@ -769,6 +780,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "slab"
+version = "0.4.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4614a76b2a8be0058caa9dbbaf66d988527d86d003c11a94fbd335d7661edcef"
+dependencies = [
+ "autocfg",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -787,9 +807,9 @@ dependencies = [
 
 [[package]]
 name = "socket2"
-version = "0.4.2"
+version = "0.4.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5dc90fe6c7be1a323296982db1836d1ea9e47b6839496dde9a541bc496df3516"
+checksum = "02e2d2db9033d13a1567121ddd7a095ee144db4e1ca1b1bda3419bc0da294ebd"
 dependencies = [
  "libc",
  "winapi 0.3.9",
@@ -867,6 +887,29 @@ version = "0.1.0"
 dependencies = [
  "config",
  "tokio",
+]
+
+[[package]]
+name = "tokio-uring"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d5e02bb137e030b3a547c65a3bd2f1836d66a97369fdcc69034002b10e155ef"
+dependencies = [
+ "io-uring",
+ "libc",
+ "scoped-tls",
+ "slab",
+ "socket2 0.4.7",
+ "tokio",
+]
+
+[[package]]
+name = "tokio-uring-server"
+version = "0.1.0"
+dependencies = [
+ "config",
+ "core_affinity",
+ "tokio-uring",
 ]
 
 [[package]]

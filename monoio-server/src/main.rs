@@ -1,7 +1,11 @@
 use std::sync::Arc;
 
 use config::{ServerConfig, PACKET_SIZE};
-use monoio::{net::TcpListener, RuntimeBuilder, io::{AsyncReadRentExt, AsyncWriteRentExt}};
+use monoio::{
+    io::{AsyncReadRentExt, AsyncWriteRentExt},
+    net::TcpListener,
+    RuntimeBuilder,
+};
 
 fn main() {
     let cfg = Arc::new(ServerConfig::parse());

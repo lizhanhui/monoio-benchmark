@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
 use config::{ServerConfig, PACKET_SIZE};
-use futures_lite::{StreamExt, AsyncReadExt, AsyncWriteExt};
-use glommio::{LocalExecutorBuilder, net::TcpListener, Task};
+use futures_lite::{AsyncReadExt, AsyncWriteExt, StreamExt};
+use glommio::{net::TcpListener, LocalExecutorBuilder, Task};
 
 fn main() {
     let cfg = Arc::new(ServerConfig::parse());

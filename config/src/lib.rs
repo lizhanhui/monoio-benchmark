@@ -43,11 +43,7 @@ pub struct ClientConfig {
         default_value = "50"
     )]
     pub conns_per_core: usize,
-    #[clap(
-        short,
-        long,
-        about = "QPS limit per core, leave blank means unlimited"
-    )]
+    #[clap(short, long, about = "QPS limit per core, leave blank means unlimited")]
     pub qps_per_core: Option<usize>,
     #[clap(
         short,
