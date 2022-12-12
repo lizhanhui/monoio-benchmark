@@ -18,9 +18,7 @@ fn main() {
                 .entries(QUEUE_DEPTH)
                 .uring_builder(
                     tokio_uring::uring_builder()
-                        .setup_cqsize(QUEUE_DEPTH * 4)
-                        .setup_sqpoll(1000)
-                        .setup_sqpoll_cpu(2)
+                        .setup_cqsize(QUEUE_DEPTH * 2)
                 )
                 .start(async {
                     serve(config).await;
